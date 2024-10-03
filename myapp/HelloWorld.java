@@ -1,6 +1,7 @@
 import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class HelloWorld {
     public static void main(String args[]) {
@@ -87,18 +88,32 @@ public class HelloWorld {
         //     System.out.println("No argument passed");
         // }
 
-        List<String> names = new ArrayList<>();
-        String input = "";
+        // List<String> names = new ArrayList<>();
+        // String input = "";
 
-        do { 
-            input = console.readLine("Enter a name: ");
-            if (!input.equals("quit")) {
-                names.add(input);
-            }
-        } while (!input.equals("quit"));
+        // do { 
+        //     input = console.readLine("Enter a name: ");
+        //     if (!input.equals("quit")) {
+        //         names.add(input);
+        //     }
+        // } while (!input.equals("quit"));
 
-        for (String name:names) {
-            System.out.println(name);
+        // for (String name:names) {
+        //     System.out.println(name);
+        // }
+
+        List<String> words = new ArrayList<>();
+        String keyboardInput = console.readLine("Enter a sentence: ");
+        Scanner scanner = new Scanner(keyboardInput);
+
+        while (scanner.hasNext()) {
+            words.add(scanner.next());
         }
+        scanner.close();
+
+        for (int z = 0; z < words.size(); z++) {
+            System.out.printf("%d : %s \r\n", z+1, words.get(z));
+        }
+        
     }
 }
